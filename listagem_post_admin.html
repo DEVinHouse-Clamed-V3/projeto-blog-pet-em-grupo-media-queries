@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Posts</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
+
 <body>
-   
-    <nav class="nav">
-        <ul>
-            <li><a href="cadastro_post.html">Criar Post</a>
-            <li><a href="listagem_post_admin.html">Listagem</a>
-        </ul>
-    </nav>
 
+    <div id="header-container"></div>
 
-    <div class="container">
-        <h1>Meus Posts</h1>
+    <div class="container h-100vh">
+        <div class="header-posts">
+            <h1>Meus Posts</h1>
+            <a href="cadastro_post.html" class="btn-new-post">Cadastrar Novo Post</a>
+        </div>
         <table id="postsTable">
             <thead>
                 <tr>
+                    <th>Foto</th>
                     <th>Título</th>
                     <th>Descrição</th>
                     <th>Categoria</th>
                     <th>Data de Criação</th>
-                    <th>Foto</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Posts serão carregados aqui -->
+              
             </tbody>
         </table>
     </div>
+
+    <div id="footer-container"></div>
+
     <script src="scripts/listagem_post_admin.js"></script>
+    <script src="./scripts/script.js"></script>
+    
 </body>
+
 </html>
