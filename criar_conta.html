@@ -1,11 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="styles/criar_conta.css" />
+  </head>
+  <body>
+    <!-- SVG DA ANIMAÇÃO DE FUNDO :) -->
+    <svg
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      width="100%"
+      height="100%"
+      viewBox="0 0 1600 900"
+      preserveAspectRatio="xMidYMax slice"
+    >
+      <defs>
+        <linearGradient id="bg">
+          <stop offset="0%" style="stop-color: #dd6b20"></stop>
+          <stop offset="50%" style="stop-color: rgba(76, 190, 255, 0.6)"></stop>
+          <stop offset="100%" style="stop-color: #dc3545"></stop>
+        </linearGradient>
+        <path
+          id="wave"
+          fill="url(#bg)"
+          d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+	s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z"
+        />
+      </defs>
+      <g>
+        <use xlink:href="#wave" opacity=".3">
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            dur="10s"
+            calcMode="spline"
+            values="270 230; -334 180; 270 230"
+            keyTimes="0; .5; 1"
+            keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+            repeatCount="indefinite"
+          />
+        </use>
+        <use xlink:href="#wave" opacity=".6">
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            dur="8s"
+            calcMode="spline"
+            values="-270 230;243 220;-270 230"
+            keyTimes="0; .6; 1"
+            keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+            repeatCount="indefinite"
+          />
+        </use>
+        <use xlink:href="#wave" opacty=".9">
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            dur="6s"
+            calcMode="spline"
+            values="0 230;-140 200;0 230"
+            keyTimes="0; .4; 1"
+            keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+            repeatCount="indefinite"
+          />
+        </use>
+      </g>
+    </svg>
+
+    <!--  FIM DO SVG DA ANIMAÇÃO DE FUNDO  -->
+
+    <div class="container">
+      <div class="form-container">
+        <!-- form -->
+        <form class="form" id="signupForm" autocomplete="off">
+          <p class="title">Crie Sua Conta</p>
+          <p class="message">Crie uma conta para continuar</p>
+
+          <label for="photoUrl">
+            <input
+              name="photoUrl"
+              class="input"
+              type="url"
+              id="photoUrl"
+              placeholder=""
+              required=""
+            />
+            <span>Foto para Cadastro</span>
+          </label>
+
+          <label>
+            <input
+              class="input"
+              type="text"
+              id="name"
+              placeholder=""
+              required=""
+            />
+            <span>Nome</span>
+          </label>
+          <label>
+            <input
+              class="input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder=""
+              required=""
+            />
+            <span>Email</span>
+          </label>
+
+          <label>
+            <input
+              class="input"
+              type="password"
+              id="password"
+              placeholder=""
+              required=""
+            />
+            <span>Senha</span>
+          </label>
+          <label>
+            <input
+              class="input"
+              id="confirmPassword"
+              type="password"
+              placeholder=""
+              required=""
+            />
+            <span>Confirme sua senha</span>
+          </label>
+          <label for="description">
+            <textarea
+              class="input"
+              id="description"
+              name="description"
+              maxlength="300"
+              placeholder=""
+              required=""
+            ></textarea>
+            <span>Biografia</span>
+          </label>
+          <button class="submit" type="submit">Cadastrar</button>
+          <p class="signin">
+            Já tem uma conta? <a href="login.html">Entrar</a>
+          </p>
+        </form>
+      </div>
+
+      <!-- card -->
+
+      <div class="card-container">
+        <div class="card">
+          <div class="profile-pic">
+            <img
+              id="profileImg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-60atl-6f9P8X81APQ_Ks2r7DjaZnBUvcfg&s"
+              alt="Foto do Perfil"
+            />
+          </div>
+          <h3 id="displayName">Seu Nome</h3>
+          <p id="displayEmail">seu.email@exemplo.com</p>
+          <button id="descriptionBtn" class="description-btn">Descrição</button>
+          <div class="card-body">
+            <p id="shortDescription" class="short-description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/criar_conta.js"></script>
+  </body>
 </html>
