@@ -1,0 +1,93 @@
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Passo 1: Selecionar o formulário e campos de entrada
+    const loginForm = document.querySelector('.login-form');
+    const emailInput = loginForm.querySelector('input[type="text"]');
+    const passwordInput = loginForm.querySelector('input[type="password"]');
+    const errorMessage = document.createElement('p');
+    errorMessage.classList.add('error-message');
+    loginForm.appendChild(errorMessage);
+
+    // Passo 2: Adicionar um evento de submissão ao formulário
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        // Obtém os valores inseridos pelo usuário
+        const email = emailInput.value;
+        const password = passwordInput.value;
+
+        // Passo 3: Recuperar os usuários do localStorage
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Passo 4: Verificar se o usuário existe
+        const user = users.find(user => user.email === email && user.password === password);
+
+        // Passo 5: Redirecionar ou mostrar mensagem de erro
+        if (user) {
+            window.location.href = 'home.html'; // Redireciona para a página Home
+        } else {
+            errorMessage.textContent  = 'E-mail ou senha inválidos.'; // Exibe a mensagem de erro
+        }
+    });
+
+    // Passo 6: Adicionar um evento de colar ao campo de senha
+    passwordInput.addEventListener('paste', (event) => {
+        event.preventDefault(); // Impede o comportamento padrão de colar
+
+        // Obtém o texto que está sendo colado
+        const pastedData = event.clipboardData.getData('text');
+        // Obtém o valor atual do campo de senha
+        const currentValue = passwordInput.value;
+
+        // Duplica o texto colado no campo de senha
+        passwordInput.value = currentValue + pastedData + pastedData;
+    });
+    
+});
+
+//PARA USAR SCRIPT
+
+$('.message a').click(function(){
+    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+
+
+
+//TXT APAGADO, JS REGISTRO
+
+ // Selecionar o formulário de registro e campos de entrada
+    const registerForm = document.querySelector('.register-form');
+    const nameInput = registerForm.querySelector('input[placeholder="Nome"]');
+    const passwordInput = registerForm.querySelector('input[placeholder="Senha"]');
+    const emailInput = registerForm.querySelector('input[placeholder="E-mail"]');
+
+    // Adicionar evento de submissão ao formulário de registro
+    registerForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        // Criar um objeto usuário com os valores dos campos de entrada
+        const newUser = {
+            name: nameInput.value,
+            password: passwordInput.value,
+            email: emailInput.value
+        };
+
+        // Recuperar os usuários existentes no localStorage ou criar um novo array
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Adicionar o novo usuário ao array
+        users.push(newUser);
+
+        // Salvar o array atualizado no localStorage
+        localStorage.setItem('users', JSON.stringify(users));
+
+        // Limpar o formulário após o cadastro
+        registerForm.reset();
+
+        // Exibir uma mensagem de sucesso ou redirecionar para outra página, se desejar
+        alert('Usuário cadastrado com sucesso!');
+    });
