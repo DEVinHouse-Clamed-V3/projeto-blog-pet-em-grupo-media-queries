@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     function setupLocalStorage() {
-        // Verifica se 'posts' já existe no localStorage
+        // Verifica se 'posts' já existe no localStorage (anotei para facilitar)
         if (!localStorage.getItem('posts')) {
             const posts = [
                 {
