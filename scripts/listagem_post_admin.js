@@ -15,6 +15,15 @@ function loadPosts() {
         posts.forEach((post, index) => {
             const row = document.createElement('tr');
 
+            const fotoCell = document.createElement('td');
+            const fotoImg = document.createElement('img');
+            fotoImg.setAttribute('src', post.foto);
+            fotoImg.setAttribute('alt', post.titulo);
+            fotoImg.style.width = '100px';
+            fotoImg.style.height = '100px';
+            fotoCell.appendChild(fotoImg);
+            row.appendChild(fotoCell);
+
             const tituloCell = document.createElement('td');
             tituloCell.textContent = post.titulo;
             row.appendChild(tituloCell);
@@ -28,20 +37,14 @@ function loadPosts() {
             row.appendChild(categoriaCell);
 
             const dataCriacaoCell = document.createElement('td');
-            dataCriacaoCell.textContent = new Date(post.dataCriacao).toLocaleDateString();
+            dataCriacaoCell.textContent = post.dataCriacao
             row.appendChild(dataCriacaoCell);
 
-            const fotoCell = document.createElement('td');
-            const fotoImg = document.createElement('img');
-            fotoImg.setAttribute('src', post.foto);
-            fotoImg.setAttribute('alt', post.titulo);
-            fotoImg.style.maxWidth = '100px';
-            fotoCell.appendChild(fotoImg);
-            row.appendChild(fotoCell);
+         
 
             const actionCell = document.createElement('td');
             const deleteButton = document.createElement('button');
-            deleteButton.classList.add('delete-btn');
+            deleteButton.classList.add('btn-danger');
             deleteButton.textContent = 'Deletar';
             deleteButton.onclick = () => deletePost(index);
             actionCell.appendChild(deleteButton);

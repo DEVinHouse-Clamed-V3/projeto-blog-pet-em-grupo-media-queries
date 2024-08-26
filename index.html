@@ -1,11 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Blog de Pets</title>
+    <link rel="stylesheet" href="./styles/main.css">
+
 </head>
+
 <body>
-    
+
+    <div id="header-container"></div>
+
+
+    <div class="main-container">
+        <!-- Banner Principal -->
+        <div class="banner">
+            <img src="./assets/images/MainBg.jpg" alt="Pets" class="banner-image">
+            <div class="banner-overlay">
+                <div class="banner-content">
+                    <h1 class="banner-heading">Bem-vindo ao Blog de Pets</h1>
+                    <p class="banner-text">Explore o mundo dos pets com a gente!</p>
+                    <a href="/blog" class="banner-button">Ver Postagens</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Categorias de Pets -->
+        <div class="section-title orange-bg">
+            <h2>Explore por categorias</h2>
+        </div>
+        <div class="grid">
+            <div class="grid-item dogs">
+                <div class="category-box">
+                    <div class="category-overlay">
+                        <h1>Cachorros</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item cats">
+                <div class="category-box">
+                    <div class="category-overlay">
+                        <h1>Gatos</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item birds">
+                <div class="category-box">
+                    <div class="category-overlay">
+                        <h1>Aves</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item reptiles">
+                <div class="category-box">
+                    <div class="category-overlay">
+                        <h1>Répteis</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Postagens em Destaque -->
+        <div class="section-title blue-bg">
+            <h2>Postagens em Destaque</h2>
+        </div>
+        <div class="grid postsContainer">
+            <!-- Posts serão carregados aqui -->
+        </div>
+
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="./scripts/script.js"></script>
+
+    <script src="./scripts/home.js"></script>
+
 </body>
+
 </html>

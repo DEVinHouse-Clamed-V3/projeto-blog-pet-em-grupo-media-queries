@@ -1,8 +1,5 @@
 function cadastrarPost(event) {
     event.preventDefault();
-
-    
-
     const post = {
         id: Date.now(),
         titulo: document.getElementById('titulo').value,
